@@ -85,5 +85,6 @@ class App{
       height:Number(document.getElementsByName("boxH")[0].value)
     }
   }
+
 }
 var app=new App();

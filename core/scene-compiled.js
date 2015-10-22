@@ -72,4 +72,4 @@ var Phisics = (function (_EventEmitter) {
   return Phisics;
 })(EventEmitter);
 
-//# sourceMappingURL=scene-compiled.js.map
+//# sourceMappingURL=Scene-compiled.js.map

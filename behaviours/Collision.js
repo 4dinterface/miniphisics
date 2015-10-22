@@ -19,9 +19,9 @@ class Collision{
         let item2 = items[i2],
             collision;
 
-        if (item1.type == "BodyBox" && item2.type == "BodyCircle") collision=this.collisionBoxAndCircle(item1, item2);
-        if (item1.type == "BodyCircle" && item2.type == "BodyBox") collision=this.collisionBoxAndCircle(item2, item1);
-        if (item1.type == "BodyCircle" && item2.type == "BodyCircle") collision=this.collisionCircleAndCircle(item1, item2);
+        if (item1.type == "BodyBox" && item2.type == "BodyCircle") collision=this.collisionBoxAndBall(item1, item2);
+        if (item1.type == "BodyCircle" && item2.type == "BodyBox") collision=this.collisionBoxAndBall(item2, item1);
+        if (item1.type == "BodyCircle" && item2.type == "BodyCircle") collision=this.collisionBallAndBall(item1, item2);
 
         if(collision) {
           //изменим направление если мы приблежаемс€ к обьекту, если удал€емс€ то нам нет смысла мен€ть направление
@@ -45,21 +45,21 @@ class Collision{
   }
 
 
-  collisionCircleAndCircle(circle1, circle2){
-    var r=Math.sqrt(Math.pow(circle1.pos.x-circle2.pos.x, 2)+Math.pow(circle1.pos.y-circle2.pos.y, 2) );
-    if(r<((circle1.d/2) + (circle2.d/2))) return true;
+  collisionBallAndBall(ball1, ball2){
+    var r=Math.sqrt(Math.pow(ball1.pos.x-ball2.pos.x, 2)+Math.pow(ball1.pos.y-ball2.pos.y, 2) );
+    if(r<((ball1.d/2) + (ball2.d/2))) return true;
     return false;
   }
 
   //Ѕј√ шарик прилипает к квадрату, веро€тно из за того что слишком низко
-  collisionBoxAndCircle(rect, circle){
+  collisionBoxAndBall(rect, ball){
     var rectCenter = new Vector(rect.width/2,rect.height/2),
-      center = new Vector(circle.pos.x - rect.pos.x, circle.pos.y - rect.pos.y),
-      side = new Vector(Math.abs (center.x) - rectCenter.x, Math.abs (center.y) - rectCenter.y);
+        center = new Vector(ball.pos.x - rect.pos.x, ball.pos.y - rect.pos.y),
+        side = new Vector(Math.abs (center.x) - rectCenter.x, Math.abs (center.y) - rectCenter.y);
 
-    if (side.x <= circle.d/2 && side.y <= circle.d/2) return {
-      x:circle.d/2-(center.x-rectCenter.x),
-      y:circle.d/2-(side.y)
+    if (side.x <= ball.d/2 && side.y <= ball.d/2) return {
+      x:ball.d/2-(center.x-rectCenter.x),
+      y:ball.d/2-(side.y)
     };
     return false;
   }

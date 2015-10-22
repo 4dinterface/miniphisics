@@ -1,0 +1,31 @@
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    display: flex;
+    padding:0px;
+    margin:0px;
+    flex-direction: column;
+    overflow:hidden;
+}
+
+.params{
+    width:100%;
+    background: gray;
+    display:flex;
+    padding:10px;
+}
+
+.param{
+    margin-left:20px;
+}
+
+.justify-end{
+    justify-content: flex-end;
+}
+
+.justify-end .param{
+    margin-right:20px;
+}

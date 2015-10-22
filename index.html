@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
-        <title>phisics</title>
+        <title>mini phisics</title>
 
         <script src="core/shim.js"></script>
         <script src="math/Vector-compiled.js"></script>
@@ -16,40 +17,9 @@
 
         <script src="renderer/CanvasRenderer-compiled.js"></script>
 
-        <style>
-            html,body{
-                width:100%;
-                height:100%;
-            }
-
-            body{
-                display: flex;
-                padding:0px;
-                margin:0px;
-                flex-direction: column;
-                overflow:hidden;
-            }
-
-            .params{
-                width:100%;
-                background: gray;
-                display:flex;
-                padding:10px;
-            }
-
-            .param{
-                margin-left:20px;
-            }
-
-            .justify-end{
-                justify-content: flex-end;
-            }
-
-            .justify-end .param{
-                margin-right:20px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="app.css">
     </head>
+
     <body>
       <div class="params">
         <div class="param"> <b>Ball</b> </div>
@@ -69,7 +39,7 @@
           <div class="param"> <button onclick="app.addBox()">ADD</button> </div>
       </div>
 
-      <canvas id="scene" width="1000px" height="1000px" style="flex:1;"> </canvas>
+      <canvas id="scene" style="flex:1;"> </canvas>
 
       <div class="params justify-end">
           <div class="param">
@@ -81,5 +51,6 @@
       </div>
 
       <script src="app-compiled.js"></script>
+
     </body>
 </html>

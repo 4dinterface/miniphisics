@@ -8,7 +8,7 @@
         <script src="core/shim.js"></script>
         <script src="math/Vector-compiled.js"></script>
         <script src="core/EventEmitter-compiled.js"></script>
-        <script src="core/Scene-compiled.js"></script>
+        <script src="core/PhisicsScene-compiled.js"></script>
         <script src="body/Box-compiled.js"></script>
         <script src="body/Circle-compiled.js"></script>
 
@@ -21,36 +21,71 @@
     </head>
 
     <body>
-      <div class="params">
-        <div class="param"> <b>Ball</b> </div>
-        <div class="param">x <input name="ballX" type="number"/> </div>
-        <div class="param">y <input name="ballY" type="number"/> </div>
-        <div class="param">d <input name="ballD" type="number"/> </div>
-        <div class="param">elast <input name="ballElastic" type="number"/> </div>
-        <div class="param"> <button onclick="app.addBall()">ADD</button> </div>
-      </div>
+        <div class="params">
+            <div class="param">
+                <b>Ball</b>
+            </div>
 
-      <div class="params">
-          <div class="param"> <b>Box</b> </div>
-          <div class="param">x <input name="boxX" type="number"/> </div>
-          <div class="param">y <input name="boxY" type="number"/> </div>
-          <div class="param">w <input name="boxW" type="number"/> </div>
-          <div class="param">h <input name="boxH" type="number"/> </div>
-          <div class="param"> <button onclick="app.addBox()">ADD</button> </div>
-      </div>
+            <div class="param">x
+                <input name="ballX" type="number" />
+            </div>
 
-      <canvas id="scene" style="flex:1;"> </canvas>
+            <div class="param">y
+                <input name="ballY" type="number" />
+            </div>
 
-      <div class="params justify-end">
-          <div class="param">
-              g <input name="g" type="number" value="48"/>
-          </div>
-          <div class="param">
-              <button onclick="app.setG()">OK</button>
-          </div>
-      </div>
+            <div class="param">d
+                <input name="ballD" type="number" />
+            </div>
 
-      <script src="app-compiled.js"></script>
+            <div class="param">elast
+                <input name="ballElastic" type="number" />
+            </div>
 
+            <div class="param">
+                <button onclick="app.addBall()">ADD</button>
+            </div>
+        </div>
+
+        <div class="params">
+            <div class="param">
+                <b>Box</b>
+            </div>
+
+            <div class="param">x
+                <input name="boxX" type="number" />
+            </div>
+
+            <div class="param">y
+                <input name="boxY" type="number" />
+            </div>
+
+            <div class="param">w
+                <input name="boxW" type="number" />
+            </div>
+
+            <div class="param">h
+                <input name="boxH" type="number" />
+            </div>
+
+            <div class="param">
+                <button onclick="app.addBox()">ADD</button>
+            </div>
+        </div>
+
+        <canvas id="scene" style="flex:1;"> </canvas>
+
+        <div class="params justify-end">
+            <div class="param">
+                g
+                <input name="g" type="number" value="81" />
+            </div>
+            <div class="param">
+                <button onclick="app.setG()">OK</button>
+            </div>
+        </div>
+
+        <script src="app-compiled.js"></script>
     </body>
+
 </html>

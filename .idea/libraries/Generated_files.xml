@@ -3,31 +3,31 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/core/EventEmitter-compiled.js" />
-        <item url="file://$PROJECT_DIR$/lib/es6-module-loader-compiled.js" />
         <item url="file://$PROJECT_DIR$/behaviours/Collision-compiled.js" />
         <item url="file://$PROJECT_DIR$/math/Vector-compiled.js" />
-        <item url="file://$PROJECT_DIR$/core/scene-compiled.js" />
-        <item url="file://$PROJECT_DIR$/app-compiled.js" />
+        <item url="file://$PROJECT_DIR$/core/PhisicsScene-compiled.js" />
         <item url="file://$PROJECT_DIR$/body/Box-compiled.js" />
         <item url="file://$PROJECT_DIR$/body/Circle-compiled.js" />
         <item url="file://$PROJECT_DIR$/renderer/CanvasRenderer-compiled.js" />
-        <item url="file://$PROJECT_DIR$/lib/require-compiled.js" />
+        <item url="file://$PROJECT_DIR$/core/shim-compiled.js" />
         <item url="file://$PROJECT_DIR$/behaviours/Gravity-compiled.js" />
+        <item url="file://$PROJECT_DIR$/app-compiled.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/lib/require-compiled.js" />
-      <root url="file://$PROJECT_DIR$/core/EventEmitter-compiled.js" />
       <root url="file://$PROJECT_DIR$/lib/es6-module-loader-compiled.js" />
+      <root url="file://$PROJECT_DIR$/lib/require-compiled.js" />
+      <root url="file://$PROJECT_DIR$/core/EventEmitter-compiled.js" />
       <root url="file://$PROJECT_DIR$/behaviours/Collision-compiled.js" />
       <root url="file://$PROJECT_DIR$/math/Vector-compiled.js" />
-      <root url="file://$PROJECT_DIR$/core/scene-compiled.js" />
-      <root url="file://$PROJECT_DIR$/app-compiled.js" />
+      <root url="file://$PROJECT_DIR$/core/PhisicsScene-compiled.js" />
       <root url="file://$PROJECT_DIR$/body/Box-compiled.js" />
       <root url="file://$PROJECT_DIR$/body/Circle-compiled.js" />
       <root url="file://$PROJECT_DIR$/renderer/CanvasRenderer-compiled.js" />
-      <root url="file://$PROJECT_DIR$/lib/require-compiled.js" />
+      <root url="file://$PROJECT_DIR$/core/shim-compiled.js" />
       <root url="file://$PROJECT_DIR$/behaviours/Gravity-compiled.js" />
+      <root url="file://$PROJECT_DIR$/app-compiled.js" />
     </CLASSES>
     <SOURCES />
   </library>

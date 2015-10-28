@@ -1,13 +1,21 @@
+/*
+ * Body ball
+ */
 "use strict";
 
-class BodyCircle{
-  constructor(config){
-    this.pos=new Vector(config.x, config.y);
-    this.v=new Vector(0, 0); //вектор скорости
+class BodyBall {
 
-    this.d=config.d;//диаметр
-    this.type="BodyCircle";
-    this.speed=0;
-    this.elast=config.elast;
+  /**
+   * конструктор
+   * @param config
+   */
+  constructor(config) {
+    this.pos = new Vector(config.x, config.y);
+    this.v = new Vector(0, 0); //вектор скорости
+
+    this.d = config.d; //диаметр
+    this.type = "BodyCircle";
+    this.elast = config.elast; //если равно true то это тело не может изменять координаты
   }
+
 }

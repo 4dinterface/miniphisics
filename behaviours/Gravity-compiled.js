@@ -1,3 +1,7 @@
+/**
+ * ��������� ���������� �� �����
+ */
+
 "use strict";
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -5,12 +9,24 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Gravity = (function () {
+  /**
+   * �����������
+   * @param config - �� ����� ���������
+   */
+
   function Gravity(config) {
     _classCallCheck(this, Gravity);
 
     this.config(config);
     this.isBehaviour = true;
   }
+
+  /**
+   * tick
+   * @param scene
+   * @param time
+   * @param interval
+   */
 
   _createClass(Gravity, [{
     key: "tick",
@@ -20,10 +36,14 @@ var Gravity = (function () {
       //������� ���������� �� ������ ��������
       for (var i = 0; i < items.length; i++) {
         if (items[i]["static"]) continue;
-        //console.log(items[i]);
         items[i].v = items[i].v.add(this.worldGravity.mul(interval / 1000));
       }
     }
+
+    /**
+     * ��������� ������������ ���������
+     * @param config
+     */
   }, {
     key: "config",
     value: function config(_config) {

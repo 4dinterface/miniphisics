@@ -1,3 +1,6 @@
+/**
+ * �����
+ */
 "use strict";
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -8,24 +11,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Phisics = (function (_EventEmitter) {
-  _inherits(Phisics, _EventEmitter);
+var PhisicsScene = (function (_EventEmitter) {
+  _inherits(PhisicsScene, _EventEmitter);
 
-  function Phisics(config) {
-    _classCallCheck(this, Phisics);
+  /**
+   * �����������
+   * @param config
+   */
 
-    _get(Object.getPrototypeOf(Phisics.prototype), "constructor", this).call(this);
+  function PhisicsScene(config) {
+    _classCallCheck(this, PhisicsScene);
+
+    _get(Object.getPrototypeOf(PhisicsScene.prototype), "constructor", this).call(this);
     this.items = [];
     this.behaviours = [];
     this.tick = this.tick.bind(this);
   }
 
-  _createClass(Phisics, [{
+  /**
+   * tick
+   * @param time
+   */
+
+  _createClass(PhisicsScene, [{
     key: "tick",
     value: function tick(time) {
+      //if(this.lastTime<0) this.lastTime=time-1;
       var interval = time - this.lastTime || 0;
 
-      //���������� ���������
+      //�������� ��� ������������������ �� ����� ���������
       for (var i = 0; i < this.behaviours.length; i++) {
         this.behaviours[i].tick(this, time, interval);
       }
@@ -33,6 +47,8 @@ var Phisics = (function (_EventEmitter) {
       //������� ������� �������� �� �������
       for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
+        if (item.isCollisionState) continue;
+
         if (item["static"]) continue;
         item.pos = item.pos.add(item.v.mul(interval / 1000)); //��� �� ����� ��� � pos.y=pos.y+v.y/1000*interval
       }
@@ -44,16 +60,29 @@ var Phisics = (function (_EventEmitter) {
       this.animFrame = requestAnimationFrame(this.tick);
       this.lastTime = time;
     }
+
+    /**
+     * ��������� ������������
+     */
   }, {
     key: "play",
     value: function play() {
       this.tick(0);
     }
+
+    /**
+     * ������������� ������������
+     */
   }, {
     key: "stop",
     value: function stop() {
       cancelAnimationFrame(this.animFrame);
     }
+
+    /**
+     * ��������� ���� ��� ��������� �� �����
+     * @param obj - ���� ��� ���������
+     */
   }, {
     key: "add",
     value: function add(obj) {
@@ -61,6 +90,11 @@ var Phisics = (function (_EventEmitter) {
 
       obj.startTime = Date.now();
     }
+
+    /**
+     * ������� ���� �� �����
+     * @param obj
+     */
   }, {
     key: "remove",
     value: function remove(obj) {
@@ -69,7 +103,7 @@ var Phisics = (function (_EventEmitter) {
     }
   }]);
 
-  return Phisics;
+  return PhisicsScene;
 })(EventEmitter);
 
-//# sourceMappingURL=Scene-compiled.js.map
+//# sourceMappingURL=PhisicsScene-compiled.js.map

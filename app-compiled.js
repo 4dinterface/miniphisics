@@ -5,24 +5,35 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var App = (function () {
+  /**
+   * �����������
+   * @param scene
+   */
+
   function App(scene) {
     _classCallCheck(this, App);
 
     this.canvas = document.getElementById("scene");
-    this.ctx = this.canvas.getContext("2d"), this.renderer = new CanvasRenderer(this.canvas);
+    this.ctx = this.canvas.getContext("2d");
+    this.renderer = new CanvasRenderer(this.canvas);
 
-    this.scene = new Phisics({});
+    this.scene = new PhisicsScene({});
     this.gravity = new Gravity({
       g: document.getElementsByName("g")[0].value
     });
 
     this.scene.add(this.gravity);
     this.scene.add(new Collision({}));
+
     this.scene.on("tick", this.tick.bind(this));
     this.scene.play();
     window.addEventListener("resize", this.resize.bind(this));
     this.resize();
   }
+
+  /**
+   * ���������� ������� ������� ������, ������� ����� �������
+   */
 
   _createClass(App, [{
     key: "resize",
@@ -30,6 +41,11 @@ var App = (function () {
       this.canvas.width = this.canvas.offsetWidth;
       this.canvas.height = this.canvas.offsetHeight;
     }
+
+    /**
+     * tick
+     * @param interval
+     */
   }, {
     key: "tick",
     value: function tick(interval) {
@@ -39,6 +55,8 @@ var App = (function () {
       this.renderer.render(this.scene, interval);
 
       this.ctx.setLineDash([3, 2]);
+
+      //������������ ���
       if (ballParams.d > 0) {
         this.ctx.beginPath();
         this.ctx.arc(ballParams.x, ballParams.y, ballParams.d / 2, 0, Math.PI * 2, false);
@@ -46,17 +64,25 @@ var App = (function () {
         this.ctx.stroke();
       }
 
-      //rect
+      //������������ box
       if (boxParams.width > 0 && boxParams.height > 0) {
         this.ctx.strokeRect(boxParams.x - boxParams.width / 2, boxParams.y - boxParams.height / 2, boxParams.width, boxParams.height);
       }
     }
+
+    /**
+     * ���������� ������� �� ������ ���������� ����
+     */
   }, {
     key: "addBall",
     value: function addBall() {
       var params = this.getBallParams();
-      this.scene.add(new BodyCircle(params));
+      this.scene.add(new BodyBall(params));
     }
+
+    /**
+     * ���������� �� ������ ���������� �����
+     */
   }, {
     key: "addBox",
     value: function addBox() {
@@ -70,12 +96,23 @@ var App = (function () {
         elast: 0
       }));
     }
+
+    /**
+     * ���������� �� ������ ���������� ��������� ����������
+     */
   }, {
     key: "setG",
     value: function setG() {
       var g = Number(document.getElementsByName("g")[0].value);
-      this.gravity.config({ g: g });
+      this.gravity.config({
+        g: g
+      });
     }
+
+    /**
+     * ������ ��������� �� ����� ��� ����
+     * @returns {{x: number, y: number, d: number, elast: number}}
+     */
   }, {
     key: "getBallParams",
     value: function getBallParams() {
@@ -86,6 +123,11 @@ var App = (function () {
         elast: Number(document.getElementsByName("ballElastic")[0].value)
       };
     }
+
+    /**
+     * ������ ��������� ��� �������
+     * @returns {{x: number, y: number, width: number, height: number}}
+     */
   }, {
     key: "getBoxParams",
     value: function getBoxParams() {

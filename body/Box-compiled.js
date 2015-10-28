@@ -1,8 +1,17 @@
+/**
+ * BOX BODY
+ */
+
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var BodyBox = function BodyBox(config) {
+var BodyBox =
+/**
+ * �����������
+ * @param config
+ */
+function BodyBox(config) {
   _classCallCheck(this, BodyBox);
 
   this.pos = new Vector(config.x, config.y);
@@ -10,8 +19,7 @@ var BodyBox = function BodyBox(config) {
   this.width = config.width;
   this.height = config.height;
   this.type = "BodyBox";
-  this.speed = 0;
-  this["static"] = config["static"];
+  this["static"] = config["static"]; //���� ����� true �� ��� ����  �� ����� �������� ����������
 };
 
 //# sourceMappingURL=Box-compiled.js.map

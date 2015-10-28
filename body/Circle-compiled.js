@@ -1,17 +1,25 @@
+/*
+ * Body ball
+ */
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var BodyCircle = function BodyCircle(config) {
-  _classCallCheck(this, BodyCircle);
+var BodyBall =
+
+/**
+ * �����������
+ * @param config
+ */
+function BodyBall(config) {
+  _classCallCheck(this, BodyBall);
 
   this.pos = new Vector(config.x, config.y);
   this.v = new Vector(0, 0); //������ ��������
 
   this.d = config.d; //�������
   this.type = "BodyCircle";
-  this.speed = 0;
-  this.elast = config.elast;
+  this.elast = config.elast; //���� ����� true �� ��� ���� �� ����� �������� ����������
 };
 
 //# sourceMappingURL=Circle-compiled.js.map

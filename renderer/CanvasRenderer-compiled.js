@@ -5,6 +5,12 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var CanvasRenderer = (function () {
+
+  /**
+   * �����������
+   * @param canvas - ������ ��� ����� �������� ������
+   */
+
   function CanvasRenderer(canvas) {
     _classCallCheck(this, CanvasRenderer);
 
@@ -14,6 +20,11 @@ var CanvasRenderer = (function () {
       throw !canvas ? "not canvas element" : "not context";
     }
   }
+
+  /**
+   * ��������� �����
+   * @param scene - ����� ������� �� ����� ������������
+   */
 
   _createClass(CanvasRenderer, [{
     key: "render",
